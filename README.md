@@ -291,6 +291,49 @@ npm install
 
 Start the development server:
 
+
+## ✨ Key Features
+
+### 👤 User & Startup Management
+- User registration and authentication
+- Email OTP verification
+- Startup and investor profiles
+- Protected routes and role-based access
+- Profile management
+
+### 🤖 AI-Powered Features
+- AI-powered startup idea analysis
+- AI-generated business insights
+- AI chatbot functionality
+- Startup strategy assistance
+- AI-generated reports
+
+### 📊 Funding & ML Analysis
+- Funding readiness analysis
+- Machine-learning-based funding prediction
+- Startup success analysis
+- Investor portfolio management
+- Investment tracking
+
+### 📄 Reports & Documents
+- Automated startup reports
+- PDF report generation
+- Report history and management
+- Email-based report delivery
+
+### 💳 Platform Features
+- Premium subscription functionality
+- Razorpay payment integration
+- Notifications
+- Startup marketplace
+- Investor-startup interaction
+
+### 🎨 Frontend Experience
+- Responsive React interface
+- Dashboard-based navigation
+- Dark/light theme support
+- Interactive UI components
+- 3D/animated visual elements
 ```bash
 npm run dev
 ```
