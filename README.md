@@ -206,3 +206,93 @@ StartupAI/
 ├── .env.example            # Environment variable template
 └── .gitignore              # Git ignored files
 ```
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/BansalB1107/StartupAI.git
+cd StartupAI
+```
+
+### 2. Backend Setup
+
+Create and activate a Python virtual environment:
+
+```bash
+python -m venv venv
+```
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Environment Variables
+
+Create a `.env` file in the project root:
+
+```bash
+copy .env.example .env
+```
+
+Configure the required environment variables in `.env`, including:
+
+```env
+DJANGO_SECRET_KEY=your_secret_key
+GEMINI_API_KEY=your_gemini_api_key
+EMAIL_HOST_USER=your_email
+EMAIL_HOST_PASSWORD=your_email_password
+RAZORPAY_KEY_ID=your_razorpay_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+```
+
+> ⚠️ Never commit the `.env` file or expose API keys, passwords, or other secrets publicly.
+
+### 4. Database
+
+StartupAI uses MongoDB.
+
+Make sure MongoDB is running locally and the database configuration matches your environment.
+
+### 5. Run the Django Backend
+
+```bash
+python manage.py runserver
+```
+
+The backend will be available at:
+
+```text
+http://127.0.0.1:8000/
+```
+
+### 6. Frontend Setup
+
+Open a new terminal and navigate to the frontend:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The React application will be available at the URL shown by Vite in the terminal.
