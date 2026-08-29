@@ -163,3 +163,45 @@ The project also includes machine-learning functionality for startup funding pre
        │  Reports /  │
        │ PDF / Email │
        └─────────────┘
+
+
+## 📁 Project Structure
+
+```text
+StartupAI/
+│
+├── backend/                 # Django project configuration
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── frontend/                # React + Vite frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── styles/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
+│
+├── users/                   # Authentication, profiles & user features
+│   ├── models.py
+│   ├── views.py
+│   ├── serializers.py
+│   └── urls.py
+│
+├── reports/                 # Startup report generation & management
+│   ├── models.py
+│   ├── views.py
+│   ├── services.py
+│   └── urls.py
+│
+├── ml/                      # Machine learning components
+│   ├── dataset/
+│   ├── models/
+│   └── notebooks/
+│
+├── manage.py                # Django management utility
+├── package.json             # Project dependencies/scripts
+├── .env.example             # Environment variable template
+└── .gitignore               # Git ignored files
