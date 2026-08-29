@@ -1,0 +1,954 @@
+/* ==========================================
+   AI REPORT HISTORY STYLES
+   ========================================== */
+
+/* ── Page Header ── */
+
+.reports-header {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.reports-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.reports-title-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.reports-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadow-glow);
+    flex-shrink: 0;
+}
+
+.reports-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.5px;
+    color: var(--text);
+}
+
+.reports-subtitle {
+    font-size: 14px;
+    color: var(--text-light);
+    margin: 4px 0 0;
+}
+
+.reports-count-badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--primary-glow);
+    color: var(--primary);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* ── Search Bar ── */
+
+.reports-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+.reports-search:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+    background: var(--surface);
+}
+
+.reports-search svg {
+    color: var(--text-light);
+    flex-shrink: 0;
+}
+
+.reports-search input {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--text);
+    font-family: var(--font-sans);
+}
+
+.reports-search input::placeholder {
+    color: var(--text-lighter);
+}
+
+.search-clear-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border);
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.search-clear-btn:hover {
+    background: var(--error);
+    color: #fff;
+}
+
+/* ── Report Cards Grid ── */
+
+.reports-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.report-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    background: var(--surface-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.report-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.report-card:hover {
+    background: var(--surface-glass-hover);
+    border-color: var(--border-focus);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.report-card:hover::before {
+    opacity: 1;
+}
+
+.report-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--primary-glow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
+.report-card-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.report-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.report-card-industry {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-light);
+    padding: 2px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+}
+
+.report-card-date {
+    font-size: 12px;
+    color: var(--text-lighter);
+    font-weight: 500;
+}
+
+.report-card-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.premium-badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(234, 179, 8, 0.05));
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.report-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.report-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--text-lighter);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.report-action-btn:hover {
+    background: var(--bg);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.report-action-btn.favorite-active {
+    color: #eab308;
+}
+
+.report-action-btn.favorite-active:hover {
+    color: #ca8a04;
+}
+
+.report-action-btn.report-delete-btn:hover {
+    color: var(--error);
+    border-color: rgba(239, 68, 68, 0.2);
+    background: var(--error-glow);
+}
+
+/* ── Rename Modal ── */
+
+.rename-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.rename-modal {
+    background: var(--surface);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 32px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--shadow-lg);
+}
+
+.rename-modal h3 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.rename-modal input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.rename-modal input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.rename-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.rename-actions button {
+    flex: 1;
+    padding: 11px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-sans);
+}
+
+.rename-save-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    border: none;
+    box-shadow: var(--shadow-glow);
+}
+
+.rename-save-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.rename-cancel-btn {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.rename-cancel-btn:hover {
+    background: var(--surface-glass-hover);
+}
+
+/* ── Pagination ── */
+
+.reports-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 16px 0;
+}
+
+.pagination-btn {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--font-sans);
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    padding: 0 12px;
+}
+
+/* ── Empty State ── */
+
+.reports-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.reports-empty-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    background: var(--primary-glow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    color: var(--primary);
+}
+
+.reports-empty h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.reports-empty p {
+    margin: 0 0 24px;
+    font-size: 14px;
+    color: var(--text-light);
+    max-width: 400px;
+}
+
+.reports-empty-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-glow);
+    font-family: var(--font-sans);
+}
+
+.reports-empty-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* ── Loading Skeletons ── */
+
+.report-skeleton {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+    background: var(--surface-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+}
+
+.skeleton-pulse {
+    background: linear-gradient(90deg, var(--border) 0%, var(--surface-glass-hover) 50%, var(--border) 100%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+.skeleton-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.skeleton-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skeleton-title {
+    height: 16px;
+    width: 60%;
+}
+
+.skeleton-meta {
+    height: 12px;
+    width: 40%;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Report Detail Header ── */
+
+.report-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.report-detail-back {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.report-detail-back:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.report-detail-info {
+    flex: 1;
+}
+
+.report-detail-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 4px;
+    letter-spacing: -0.3px;
+}
+
+.report-detail-meta {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* ── Recent Reports Widget ── */
+
+.recent-reports-widget {
+    margin-top: 4px;
+}
+
+.recent-reports-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.recent-reports-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.recent-reports-view-all {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-family: var(--font-sans);
+}
+
+.recent-reports-view-all:hover {
+    background: var(--primary-glow);
+}
+
+.recent-report-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.recent-report-item:hover {
+    background: var(--primary-glow);
+    border-color: rgba(59, 130, 246, 0.1);
+}
+
+.recent-report-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+}
+
+.recent-report-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.recent-report-time {
+    font-size: 12px;
+    color: var(--text-lighter);
+    flex-shrink: 0;
+}
+
+.recent-report-arrow {
+    color: var(--text-lighter);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.recent-report-item:hover .recent-report-arrow {
+    transform: translateX(4px);
+    color: var(--primary);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .report-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .report-card-badges {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .report-card-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .reports-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================
+   PDF EXPORT BUTTONS
+   ========================================== */
+
+.report-export-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+    background: var(--surface-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-sans);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.report-export-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.report-export-btn > * {
+    position: relative;
+    z-index: 1;
+}
+
+.report-export-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2), var(--shadow);
+    color: #fff;
+}
+
+.report-export-btn:hover::before {
+    opacity: 1;
+}
+
+.report-export-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.report-export-btn:disabled:hover::before {
+    opacity: 0;
+}
+
+.report-export-btn:disabled:hover {
+    color: var(--text);
+    border-color: var(--border-glass);
+}
+
+.report-export-btn.download-btn {
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.report-export-btn.email-btn {
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.report-export-btn.email-btn::before {
+    background: linear-gradient(135deg, #10B981, #059669);
+}
+
+.report-export-btn.email-btn:hover {
+    border-color: var(--success);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2), var(--shadow);
+}
+
+/* ── Report Card Action Btn Variants ── */
+
+.report-action-btn.download-btn:hover {
+    color: var(--primary);
+    border-color: rgba(59, 130, 246, 0.2);
+    background: var(--primary-glow);
+}
+
+.report-action-btn.email-btn:hover {
+    color: var(--success);
+    border-color: rgba(16, 185, 129, 0.2);
+    background: var(--success-glow);
+}
+
+/* ── Export Buttons Row ── */
+
+.report-export-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   PDF LOADING MODAL
+   ========================================== */
+
+.pdf-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.pdf-loading-modal {
+    background: var(--surface);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 40px 48px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.pdf-loading-spinner {
+    color: var(--primary);
+}
+
+.pdf-loading-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.pdf-loading-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+    transition: all 0.3s ease;
+}
+
+.pdf-step-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.pdf-step-text {
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.pdf-loading-progress {
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--border);
+    overflow: hidden;
+}
+
+.pdf-loading-progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.6s ease;
+}
+
+/* ==========================================
+   TOAST NOTIFICATIONS
+   ========================================== */
+
+.toast-notification {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1px solid;
+    background: var(--surface);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg);
+    z-index: 10001;
+    max-width: 400px;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.toast-message {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.toast-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: var(--text-lighter);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    margin-left: 4px;
+}
+
+.toast-close:hover {
+    background: var(--border);
+    color: var(--text);
+}
+
+/* ── Responsive Export Buttons ── */
+
+@media (max-width: 768px) {
+    .report-export-row {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .report-export-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .toast-notification {
+        left: 16px;
+        right: 16px;
+        max-width: none;
+    }
+
+    .pdf-loading-modal {
+        margin: 0 20px;
+        padding: 32px 28px;
+    }
+}
+

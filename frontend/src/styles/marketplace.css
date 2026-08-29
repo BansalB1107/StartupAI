@@ -1,0 +1,479 @@
+/* ==========================================================================
+   MARKETPLACE PAGE — Search, Filters, Pagination, Skeletons, Empty State
+   Enterprise SaaS — Modern Fintech Blue
+   ========================================================================== */
+
+/* ── Toolbar (Search + Filter Toggle) ── */
+
+.marketplace-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.marketplace-search-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.marketplace-search-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--text-lighter);
+    pointer-events: none;
+}
+
+.marketplace-search-input {
+    width: 100%;
+    padding: 14px 42px 14px 46px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.marketplace-search-input::placeholder {
+    color: var(--text-lighter);
+}
+
+.marketplace-search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.marketplace-search-clear {
+    position: absolute;
+    right: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: none;
+    background: var(--border);
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.marketplace-search-clear:hover {
+    background: var(--error-bg);
+    color: var(--error);
+}
+
+/* ── Sort Select ── */
+
+.marketplace-sort-select {
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 14px;
+    padding-right: 40px;
+}
+
+.marketplace-sort-select:hover,
+.marketplace-sort-select:focus {
+    border-color: var(--primary);
+    color: var(--primary);
+    outline: none;
+}
+
+.marketplace-sort-select option {
+    background-color: var(--bg-card);
+    color: var(--text);
+    font-size: 14px;
+    padding: 12px;
+}
+
+/* ── Filter Row ── */
+
+.marketplace-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.marketplace-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 160px;
+}
+
+.marketplace-filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-lighter);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.marketplace-filter-select {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    appearance: auto;
+}
+
+.marketplace-filter-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.marketplace-verified-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.marketplace-verified-toggle:hover {
+    border-color: var(--primary);
+}
+
+.marketplace-verified-toggle.active {
+    background: var(--primary-glow);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.marketplace-clear-filters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    background: var(--error-bg);
+    color: var(--error);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    align-self: flex-end;
+}
+
+.marketplace-clear-filters:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+/* ── Results Meta ── */
+
+.marketplace-results-meta {
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding: 0 4px;
+}
+
+.marketplace-results-meta strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.marketplace-results-query {
+    margin-left: 4px;
+    color: var(--text-lighter);
+}
+
+/* ── Loading Skeleton ── */
+
+.marketplace-skeleton {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.skeleton-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skeleton-badge {
+    width: 80px;
+    height: 28px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--border) 25%, rgba(30, 41, 59, 0.5) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-badge.short {
+    width: 56px;
+}
+
+.skeleton-title {
+    width: 65%;
+    height: 22px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--border) 25%, rgba(30, 41, 59, 0.5) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-text {
+    width: 100%;
+    height: 14px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--border) 25%, rgba(30, 41, 59, 0.5) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-text.short {
+    width: 70%;
+}
+
+.skeleton-funding {
+    width: 100%;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, var(--border) 25%, rgba(30, 41, 59, 0.5) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-btn {
+    width: 100%;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--border) 25%, rgba(30, 41, 59, 0.5) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Empty State ── */
+
+.marketplace-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.marketplace-empty-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    background: var(--primary-glow);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.marketplace-empty h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 8px;
+}
+
+.marketplace-empty p {
+    font-size: 14px;
+    color: var(--text-light);
+    max-width: 360px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.marketplace-clear-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    background: var(--primary-glow);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.marketplace-clear-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ── Pagination ── */
+
+.marketplace-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding-bottom: 24px;
+}
+
+.marketplace-page-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.marketplace-page-btn:hover:not(:disabled) {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-glow);
+}
+
+.marketplace-page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.marketplace-page-numbers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.marketplace-page-num {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.marketplace-page-num:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.marketplace-page-num.active {
+    background: var(--primary);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 15px -4px rgba(59, 130, 246, 0.4);
+}
+
+.marketplace-page-ellipsis {
+    color: var(--text-lighter);
+    font-size: 14px;
+    padding: 0 4px;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .marketplace-toolbar {
+        flex-direction: column;
+    }
+
+    .marketplace-filter-toggle-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .marketplace-filters {
+        flex-direction: column;
+    }
+
+    .marketplace-filter-group {
+        width: 100%;
+    }
+
+    .marketplace-pagination {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .marketplace-page-numbers {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .marketplace-empty {
+        padding: 48px 20px;
+    }
+
+    .marketplace-page-btn span {
+        display: none;
+    }
+}

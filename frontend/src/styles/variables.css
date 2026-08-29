@@ -1,0 +1,72 @@
+/* ==========================================================================
+   STARTUPAI — variables.css
+   Standalone token file (imported by styles/layout.css, dashboard.css, etc.)
+   Enterprise SaaS — Modern Fintech Blue
+   ========================================================================== */
+
+:root {
+    --grad:            linear-gradient(135deg, #1E293B 0%, #1D4ED8 100%);
+    --grad-soft:       linear-gradient(135deg, #0F172A, #1E3A5F);
+
+    --bg:              #0A0E17;
+    --bg-card:         #121826;
+    --sidebar-bg:      #121826;
+    --topbar-bg:       rgba(18, 24, 38, 0.92);
+
+    --primary:         #3B82F6;
+    --primary-hover:   #2563EB;
+    --primary-light:   rgba(59, 130, 246, 0.1);
+    --primary-glow:    rgba(59, 130, 246, 0.15);
+    --primary-focus:   rgba(59, 130, 246, 0.3);
+
+    --secondary:       #2563EB;
+    --secondary-hover: #1D4ED8;
+    --secondary-light: rgba(37, 99, 235, 0.1);
+
+    --text:            #F8FAFC;
+    --text-light:      #94A3B8;
+    --text-lighter:    #64748B;
+
+    --border:          #1E293B;
+    --border-glass:    rgba(59, 130, 246, 0.08);
+    --border-focus:    rgba(59, 130, 246, 0.4);
+
+    --surface:         #121826;
+    --surface-hover:   #1A2333;
+    --surface-glass:   rgba(18, 24, 38, 0.8);
+    --surface-glass-hover: rgba(26, 35, 51, 0.9);
+
+    --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow:      0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-lg:   0 20px 40px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+
+    --success:         #10B981;
+    --success-bg:      rgba(16, 185, 129, 0.15);
+    --success-glow:    rgba(16, 185, 129, 0.15);
+    --error:           #EF4444;
+    --error-bg:        rgba(239, 68, 68, 0.15);
+    --error-glow:      rgba(239, 68, 68, 0.15);
+    --warning:         #F59E0B;
+    --warning-bg:      rgba(245, 158, 11, 0.15);
+    --premium:         #F59E0B;
+    --premium-bg:      rgba(245, 158, 11, 0.1);
+
+    --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    --radius-sm:   0.5rem;
+    --radius-md:   0.75rem;
+    --radius-lg:   1rem;
+    --radius-xl:   1.25rem;
+    --radius-2xl:  1.5rem;
+    --radius-full: 9999px;
+
+    --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Legacy compat */
+    --bg-main:    #0A0E17;
+    --sidebar:    #121826;
+    --text-main:  #F8FAFC;
+    --text-muted: #475569;
+}

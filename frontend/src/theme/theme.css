@@ -1,0 +1,118 @@
+/* ==========================================================================
+   STARTUPAI — THEME.CSS
+   Fonts + all CSS variables + global base + glassmorphism utilities
+   Enterprise SaaS — Modern Fintech Blue
+   ========================================================================== */
+
+/* Fonts are loaded from the HTML head to avoid PostCSS import-order issues. */
+
+/* ── Design tokens (Enterprise Dark — single theme) ────────────────────── */
+:root {
+    /* ── Core Surfaces ── */
+    --bg:              #0A0E17;       /* Deep Navy Slate — App background */
+    --bg-card:         #121826;       /* Dark Slate — Cards, sidebars, modals */
+    --sidebar-bg:      #121826;
+    --topbar-bg:       rgba(18, 24, 38, 0.92);
+    --surface:         #121826;
+    --surface-hover:   #1A2333;       /* Interactive card/nav hover */
+    --surface-glass:   rgba(18, 24, 38, 0.8);
+    --surface-glass-hover: rgba(26, 35, 51, 0.9);
+
+    /* ── Gradients ── */
+    --grad:            linear-gradient(135deg, #1E293B 0%, #1D4ED8 100%);
+    --grad-soft:       linear-gradient(135deg, #0F172A, #1E3A5F);
+
+    /* ── Primary Accent (Electric Indigo) ── */
+    --primary:         #3B82F6;
+    --primary-hover:   #2563EB;
+    --primary-light:   rgba(59, 130, 246, 0.1);
+    --primary-glow:    rgba(59, 130, 246, 0.15);
+    --primary-focus:   rgba(59, 130, 246, 0.3);
+
+    /* ── Secondary (kept for API compat, maps to primary) ── */
+    --secondary:       #2563EB;
+    --secondary-hover: #1D4ED8;
+    --secondary-light: rgba(37, 99, 235, 0.1);
+
+    /* ── Text Hierarchy ── */
+    --text:            #F8FAFC;       /* Crisp White — headings, key metrics */
+    --text-light:      #94A3B8;       /* Cool Gray — labels, subtitles */
+    --text-lighter:    #64748B;       /* Slate — timestamps, inactive nav */
+    --text-muted:      #475569;       /* Muted — borders, disabled */
+
+    /* ── Borders ── */
+    --border:          #1E293B;       /* Subtle structural borders */
+    --border-glass:    rgba(59, 130, 246, 0.08);
+    --border-focus:    rgba(59, 130, 246, 0.4);
+
+    /* ── Shadows (Professional depth) ── */
+    --shadow-sm:   0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow:      0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-lg:   0 20px 40px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+
+    /* ── Semantic Colors ── */
+    --success:         #10B981;       /* Emerald — positive financial metrics */
+    --success-bg:      rgba(16, 185, 129, 0.15);
+    --success-glow:    rgba(16, 185, 129, 0.15);
+    --error:           #EF4444;
+    --error-bg:        rgba(239, 68, 68, 0.15);
+    --error-glow:      rgba(239, 68, 68, 0.15);
+    --warning:         #F59E0B;       /* Amber — pending statuses, premium */
+    --warning-bg:      rgba(245, 158, 11, 0.15);
+    --premium:         #F59E0B;
+    --premium-bg:      rgba(245, 158, 11, 0.1);
+
+    /* ── Typography ── */
+    --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    /* ── Radii ── */
+    --radius-sm:   0.5rem;
+    --radius-md:   0.75rem;
+    --radius-lg:   1rem;
+    --radius-xl:   1.25rem;
+    --radius-2xl:  1.5rem;
+    --radius-full: 9999px;
+
+    /* ── Transitions ── */
+    --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ── Legacy compat aliases ── */
+    --bg-main:        #0A0E17;
+    --bg-card-legacy: #121826;
+    --sidebar:        #121826;
+    --text-main:      #F8FAFC;
+}
+
+/* ── Global base ──────────────────────────────────────────────────────────── */
+html {
+    background: var(--bg);
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+* { box-sizing: border-box; }
+
+/* ── Glassmorphism utilities ──────────────────────────────────────────────── */
+.glass-panel {
+    background: var(--surface-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+}
+.glass-panel-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.glass-panel-hover:hover {
+    background: var(--surface-glass-hover);
+    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}

@@ -1,0 +1,547 @@
+/* ==========================================================================
+   AI FUNDING READINESS — STYLES
+   Enterprise SaaS — Modern Fintech Blue
+   ========================================================================== */
+
+/* ── Collapsible Card Container ─────────────────────────────────────────── */
+.funding-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.funding-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+.funding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s ease;
+}
+
+.funding-header:hover {
+    background: rgba(59, 130, 246, 0.04);
+}
+
+.funding-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.funding-header-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 15px -4px rgba(59, 130, 246, 0.4);
+}
+
+.funding-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.funding-header p {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.funding-toggle {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.funding-toggle:hover {
+    background: var(--primary-glow);
+    color: var(--primary);
+}
+
+.funding-toggle svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.funding-toggle.open svg {
+    transform: rotate(180deg);
+}
+
+/* ── Body (Collapsible) ────────────────────────────────────────────────── */
+.funding-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s ease;
+    padding: 0 30px;
+}
+
+.funding-body.expanded {
+    max-height: 2000px;
+    padding: 0 30px 30px;
+}
+
+/* ── Form Grid ─────────────────────────────────────────────────────────── */
+.funding-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .funding-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.funding-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.funding-field label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.funding-field label svg {
+    color: var(--text-light);
+}
+
+.funding-field input,
+.funding-field select {
+    padding: 11px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.funding-field input:focus,
+.funding-field select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+    background: var(--bg-card);
+}
+
+/* ── Action Buttons ────────────────────────────────────────────────────── */
+.funding-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.funding-save-btn {
+    padding: 12px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.funding-save-btn:hover {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+    color: var(--primary);
+}
+
+.funding-predict-btn {
+    padding: 12px 28px;
+    background: var(--primary);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px -4px rgba(59, 130, 246, 0.4);
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.funding-predict-btn:hover {
+    transform: translateY(-2px);
+    background: var(--primary-hover);
+    box-shadow: 0 8px 20px -4px rgba(59, 130, 246, 0.5);
+}
+
+.funding-predict-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ── Divider ───────────────────────────────────────────────────────────── */
+.funding-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+    border: none;
+}
+
+/* ── Results Section ───────────────────────────────────────────────────── */
+.funding-results {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.funding-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.funding-results-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.funding-refresh-btn {
+    padding: 8px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.funding-refresh-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.funding-refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ── Score Display ─────────────────────────────────────────────────────── */
+.funding-score-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 30px;
+    align-items: start;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+    .funding-score-row {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+/* Score Circle */
+.score-circle-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.score-circle-svg {
+    width: 160px;
+    height: 160px;
+    transform: rotate(-90deg);
+}
+
+.score-circle-bg {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 10;
+}
+
+.score-circle-fill {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.score-circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.score-value {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.score-unit {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.score-subtitle {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Info Badges ───────────────────────────────────────────────────────── */
+.funding-info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
+.funding-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(59, 130, 246, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.funding-info-item .info-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.funding-info-item .info-value {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+/* Status Badges */
+.funding-badge {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-outstanding {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.badge-high {
+    background: rgba(59, 130, 246, 0.12);
+    color: #3B82F6;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.badge-moderate {
+    background: rgba(245, 158, 11, 0.12);
+    color: #F59E0B;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.badge-low {
+    background: rgba(249, 115, 22, 0.12);
+    color: #F97316;
+    border: 1px solid rgba(249, 115, 22, 0.25);
+}
+
+.badge-very-low {
+    background: rgba(239, 68, 68, 0.12);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* Confidence badges */
+.confidence-high {
+    color: #10B981;
+}
+
+.confidence-medium {
+    color: #F59E0B;
+}
+
+.confidence-low {
+    color: #EF4444;
+}
+
+/* ── AI Explanation ────────────────────────────────────────────────────── */
+.funding-explanation {
+    padding: 20px;
+    background: rgba(59, 130, 246, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+.funding-explanation h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.funding-explanation p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+/* ── Loading Spinner ───────────────────────────────────────────────────── */
+.funding-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 16px;
+}
+
+.funding-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.funding-loading p {
+    font-size: 14px;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* ── Toast / Messages ──────────────────────────────────────────────────── */
+.funding-toast {
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+    animation: fadeInUp 0.3s ease;
+}
+
+.funding-toast.success {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.funding-toast.error {
+    background: rgba(239, 68, 68, 0.12);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* ── Investor Read-Only Card ───────────────────────────────────────────── */
+.funding-readonly-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-top: 24px;
+}
+
+.funding-readonly-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.funding-readonly-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 640px) {
+    .funding-readonly-grid {
+        grid-template-columns: 1fr;
+    }
+}

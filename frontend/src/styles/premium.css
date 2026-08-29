@@ -1,0 +1,182 @@
+/* ==========================================================================
+   PREMIUM MEMBERSHIP BUTTON STYLES
+   Enterprise SaaS — Modern Fintech Blue
+   ========================================================================== */
+
+/* Wrapper to contain the absolute positioned shimmer effect */
+.premium-cta-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+}
+
+/* Premium Animated CTA */
+.premium-cta-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.premium-cta-btn:hover {
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.35);
+}
+
+/* Text Container inside Button */
+.premium-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.premium-cta-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.premium-cta-subtitle {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 2px;
+}
+
+/* Shimmer Animation (Glossy diagonal shine) */
+.premium-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: shimmer-slide 3s infinite;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@keyframes shimmer-slide {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+/* Subtle Pulse Glow */
+.premium-cta-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #3B82F6, #2563EB, #1D4ED8);
+    border-radius: 14px;
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0.3;
+    animation: pulse-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% { opacity: 0.2; filter: blur(8px); }
+    100% { opacity: 0.4; filter: blur(14px); }
+}
+
+/* ── Premium Owned Badge ── */
+
+.premium-member-badge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #1E293B, #0F172A);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: 12px;
+    color: #F59E0B;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.premium-member-badge:hover {
+    background: linear-gradient(135deg, #0F172A, #1E293B);
+    border-color: rgba(245, 158, 11, 0.7);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+    transform: translateY(-2px);
+}
+
+.premium-member-badge:active {
+    transform: translateY(1px);
+}
+
+.premium-badge-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.premium-badge-subtitle {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(245, 158, 11, 0.7);
+    margin-top: 2px;
+}
+
+.premium-member-badge-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #3B82F6, #F59E0B);
+    border-radius: 14px;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.2;
+    animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-cta-btn,
+    .premium-member-badge {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+    
+    .premium-cta-subtitle {
+        display: none;
+    }
+}

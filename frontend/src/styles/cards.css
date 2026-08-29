@@ -1,0 +1,13 @@
+.app-card{
+background:var(--bg-card);
+border:1px solid var(--border);
+border-radius:16px;
+padding:28px;
+box-shadow:var(--shadow);
+transition:.25s;
+}
+
+.app-card:hover{
+box-shadow:var(--shadow-lg);
+border-color: rgba(255, 255, 255, 0.08);
+}
